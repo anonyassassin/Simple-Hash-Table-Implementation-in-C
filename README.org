@@ -1,0 +1,10 @@
+#+AUTHOR: ARDEV
+
+* Simple hash table implementation using C
+This is a fun little project in which I have tried to implement hash table from scratch using C
+
+** HOW TO USE IT?
+1. Simply write all your code in main.c
+2. Then type in *make* in your terminal.
+   this will generate a executable called app
+3. Simply run the executable with *./app* in your terminal
