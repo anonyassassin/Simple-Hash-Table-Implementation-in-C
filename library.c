@@ -100,7 +100,7 @@ int lookup(char key[], HASH_TABLE *ptr) {
 
   while (p != NULL) {
     if (strcmp(p->first, key) == 0) {
-      return hash_value;
+      return p->second;
     }
     p = p->next;
   }
