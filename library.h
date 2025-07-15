@@ -14,12 +14,12 @@ int hash(char *s);
 
 HASH_TABLE create_hash_table();
 
-void init_hash_table(entry ***ptr);
+void init_hash_table(HASH_TABLE *ptr);
 
-int add_item(char key[], int val, entry ***ptr);
+int add_item(char key[], int val, HASH_TABLE *ptr);
 
-int delete_item(char key[], entry ***ptr);
+int delete_item(char key[], HASH_TABLE *ptr);
 
-int lookup(char key[], entry ***ptr);
+int lookup(char key[], HASH_TABLE *ptr);
 
 #endif

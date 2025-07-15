@@ -15,17 +15,20 @@ int hash(char *s) {
   return hash_value;
 }
 
-HASH_TABLE create_hash_table() {
-    return (entry **)malloc(TABLE_SIZE * sizeof(entry *));
-}
 
-void init_hash_table(entry ***ptr) {
+void init_hash_table(HASH_TABLE *ptr) {
   for (int i = 0; i < TABLE_SIZE; i++) {
     (*ptr)[i] = NULL;
   }
 }
 
-int add_item(char key[], int val, entry ***ptr) {
+HASH_TABLE create_hash_table() {
+    HASH_TABLE hash_table = (entry **)malloc(TABLE_SIZE * sizeof(entry *));
+    init_hash_table(&hash_table);
+    return hash_table;
+}
+
+int add_item(char key[], int val, HASH_TABLE *ptr) {
   int hash_value = hash(key);
 
   if ((*ptr)[hash_value] == NULL) {
@@ -52,7 +55,7 @@ int add_item(char key[], int val, entry ***ptr) {
   return hash_value;
 }
 
-int delete_item(char key[], entry ***ptr) {
+int delete_item(char key[], HASH_TABLE *ptr) {
   int hash_value = hash(key);
 
   if ((*ptr)[hash_value] != NULL && (*ptr)[hash_value]->next == NULL) {
@@ -90,7 +93,7 @@ int delete_item(char key[], entry ***ptr) {
   return 1;
 }
 
-int lookup(char key[], entry ***ptr) {
+int lookup(char key[], HASH_TABLE *ptr) {
   int hash_value = hash(key);
   entry *p = (*ptr)[hash_value];
 
